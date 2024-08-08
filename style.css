@@ -1,0 +1,81 @@
+* {
+	padding: 0px;
+	margin: 0px;
+	border: none;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.autocomplete-list, .repo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.autocomplete-list li, .repo-list li {
+    padding: 10px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
+
+.autocomplete-list li:hover {
+    background-color: #f0f0f0;
+}
+
+.repo-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.repo-list li .remove-btn {
+    background-color: #f5f5f5;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
