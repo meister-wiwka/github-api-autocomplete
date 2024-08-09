@@ -1,6 +1,6 @@
-const repoSearch = document.getElementById('repoSearch');
-const autocompleteList = document.getElementById('autocompleteList');
-const repoList = document.getElementById('repoList');
+const repoSearch = document.querySelector('.repo-search');
+const autocompleteList = document.querySelector('.autocomplete-list');
+const repoList = document.querySelector('.repo-list');
 
 repoSearch.addEventListener('input', debounce(handleInput, 400));
 
@@ -36,19 +36,24 @@ function showAutocomplete(repos) {
 }
 
 function clearAutocomplete() {
-    autocompleteList.innerHTML = '';
+    while (autocompleteList.firstChild) {
+        autocompleteList.removeChild(autocompleteList.firstChild);
+    }
 }
 
 function addRepo(repo) {
     const li = document.createElement('li');
     li.classList.add('list-item');
-    li.innerHTML = `
-        Repository: ${repo.name} by ${repo.owner.login} - stars: ${repo.stargazers_count}
-        <button class="remove-btn">delete</button>
-    `;
-    li.querySelector('.remove-btn').addEventListener('click', () => {
+    li.textContent = `Repository: ${repo.name} by ${repo.owner.login} - stars: ${repo.stargazers_count}`;
+    
+    const button = document.createElement('button');
+    button.classList.add('remove-btn');
+    button.textContent = 'delete';
+    button.addEventListener('click', () => {
         li.remove();
     });
+
+    li.appendChild(button);
     repoList.appendChild(li);
     repoSearch.value = '';
 
